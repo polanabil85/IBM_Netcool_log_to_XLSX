@@ -1,10 +1,9 @@
 import pandas as pd 
 import numpy as np
-import re
 nan = np.nan
 rows=[]
 dict1={}
-with open('zten31_e300.log','r') as reader:
+with open('samplelog.log','r') as reader:
     for line in reader:
         if 'Event Processor' in line:
             if '[Event Processor] Processing alert' in line:
@@ -14,5 +13,6 @@ with open('zten31_e300.log','r') as reader:
             dict1[strin2[0].strip()]=' '.join(strin2[1:]).strip()
         if 'Processing Alert...' in line:
             rows.append(dict1)
+            dict1={}
 datafr=pd.DataFrame.from_dict(rows, orient='columns')
 datafr.to_excel('alarms.xlsx')
