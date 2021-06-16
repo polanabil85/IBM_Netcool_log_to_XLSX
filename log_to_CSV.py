@@ -4,7 +4,7 @@ import re
 nan = np.nan
 rows=[]
 dict1={}
-with open('zten31_e300_Auto_Long.log','r') as reader:
+with open('zten31_e300.log','r') as reader:
     for line in reader:
         if 'Event Processor' in line:
             if '[Event Processor] Processing alert' in line:
