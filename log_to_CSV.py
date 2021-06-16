@@ -15,4 +15,4 @@ with open('zten31_e300_Auto_Long.log','r') as reader:
         if 'Processing Alert...' in line:
             rows.append(dict1)
 datafr=pd.DataFrame.from_dict(rows, orient='columns')
-datafr.to_csv('alarms.csv')
+datafr.to_excel('alarms.xlsx')
